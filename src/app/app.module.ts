@@ -1,3 +1,4 @@
+import { PatientService } from './services/patient.service';
 import { AuthService } from './services/auth.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -12,6 +13,9 @@ import { HomeComponent } from './components/home/home.component';
 import { MaterialModule } from './app.material';
 import { LoginComponent } from './components/login/login.component';
 import { HeaderComponent } from './components/header/header.component';
+import { PatientListComponent } from './components/patient-list/patient-list.component';
+import { AddPatientComponent } from './components/add-patient/add-patient.component';
+import { PatientsComponent } from './components/patients/patients.component';
 
 
 @NgModule({
@@ -19,7 +23,10 @@ import { HeaderComponent } from './components/header/header.component';
     AppComponent,
     HomeComponent,
     LoginComponent,
-    HeaderComponent
+    HeaderComponent,
+    PatientListComponent,
+    AddPatientComponent,
+    PatientsComponent
   ],
   imports: [
     BrowserModule,
@@ -31,7 +38,8 @@ import { HeaderComponent } from './components/header/header.component';
   ],
   providers: [
     routedComponents,
-    AuthService
+    AuthService,
+    PatientService
   ],
   bootstrap: [AppComponent]
 })

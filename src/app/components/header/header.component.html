@@ -1,22 +1,30 @@
 <mat-toolbar color="primary">
-    <mat-toolbar-row>
-      <span>Doctors Server</span>
-  
-      <span class="example-spacer"></span>
-  
-      <button mat-button>Noticias</button>
-      <button mat-button routerLink="/">Inicio</button>
-      <button mat-button routerLink="/login">Login</button>
-  
-      <!--lateral menu dot-->
-      <mat-menu #appMenu="matMenu">
+  <mat-toolbar-row>
+    <span>Doctors Server</span>
+
+
+    <span class="example-spacer"></span>
+
+    <button mat-button>Noticias</button>
+    <button mat-button routerLink="/">Inicio</button>
+    <button mat-button routerLink="/login">Login</button>
+
+    <div *ngIf="currentUser && (currentUser.role === 'ADMIN' || currentUser.role === 'DOCTOR')">
+      <button mat-button routerLink="/patients">Patients</button>
+    </div>
+
+    <span color="secondary" class="user_data" *ngIf="currentUser">{{currentUser.username}} - {{currentUser.role}}
+      <mat-icon>person</mat-icon>
+    </span>
+    <!--lateral menu dot-->
+    <!--<mat-menu #appMenu="matMenu">
         <button mat-menu-item> Settings </button>
         <button mat-menu-item> Help </button>
       </mat-menu>
       <button mat-icon-button [matMenuTriggerFor]="appMenu">
          <mat-icon>more_vert</mat-icon>
-      </button>
-      <!--lateral menu dot end-->
-  
-    </mat-toolbar-row>
-  </mat-toolbar>
+      </button>-->
+    <!--lateral menu dot end-->
+
+  </mat-toolbar-row>
+</mat-toolbar>

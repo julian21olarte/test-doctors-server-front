@@ -5,3 +5,12 @@
   .example-spacer {
     flex: 1 1 auto;
   }
+
+  .user_data {
+    font-size: .7em;
+    color: rgb(255, 255, 255);
+  }
+
+  mat-icon {
+    vertical-align: middle;
+  }

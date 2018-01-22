@@ -1,5 +1,6 @@
 import { AuthService } from './../../services/auth.service';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -13,7 +14,7 @@ export class LoginComponent implements OnInit {
     username: string,
     password: string
   };
-  constructor(private authService: AuthService) {
+  constructor(private authService: AuthService, private router: Router) {
     this.hide = true;
     this.userLogin = {username: '', password: ''};
   }
@@ -27,6 +28,7 @@ export class LoginComponent implements OnInit {
         userLogged = userLogged.json().user;
         if (userLogged) {
           this.authService.setCurrentUser(userLogged);
+          this.router.navigate(['home']);
         }
       });
   }
